@@ -1,0 +1,253 @@
+/* ================================
+   SPORT & SANTÉ — sport.css
+================================ */
+
+/* Énergie */
+.energie-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.energie-btn {
+  background: white;
+  border: 1px solid var(--rose);
+  color: var(--texte-doux);
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s;
+}
+
+.energie-btn.actif {
+  background: var(--bordeaux);
+  color: white;
+  border-color: var(--bordeaux);
+}
+
+.energie-message {
+  background: var(--creme2);
+  border-left: 3px solid var(--caramel);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--texte-doux);
+  margin-top: 8px;
+}
+
+/* Chrono sport */
+#chrono-sport-zone {
+  background: var(--creme2);
+  border: 1.5px solid var(--caramel);
+  border-radius: 16px;
+  text-align: center;
+  padding: 20px;
+}
+
+#chrono-sport-nom {
+  font-size: 13px;
+  color: var(--texte-doux);
+  margin-bottom: 4px;
+}
+
+#chrono-sport-temps {
+  font-size: 42px;
+  font-weight: 500;
+  color: var(--caramel);
+  font-family: 'Montserrat', sans-serif;
+  margin: 8px 0;
+}
+
+.sport-progress-bg {
+  height: 6px;
+  background: #EEE7DC;
+  border-radius: 6px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.sport-progress-fill {
+  height: 100%;
+  background: var(--caramel);
+  border-radius: 6px;
+  transition: width 1s linear;
+}
+
+#chrono-sport-zone button {
+  background: var(--bordeaux);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* Catégories sport */
+.categories-sport {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+
+.categories-sport::-webkit-scrollbar { display: none; }
+
+.cat-sport {
+  background: white;
+  border: 1px solid var(--rose);
+  color: var(--texte-doux);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s;
+}
+
+.cat-sport.actif {
+  background: var(--caramel);
+  color: white;
+  border-color: var(--caramel);
+}
+
+/* Exercices */
+li .duree-badge {
+  background: var(--creme2);
+  color: var(--texte-doux);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+li .lancer-sport {
+  background: transparent;
+  border: 1px solid var(--caramel);
+  color: var(--caramel);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+li .lancer-sport:hover {
+  background: var(--caramel);
+  color: white;
+}
+
+/* Suivi poids */
+.poids-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.poids-card {
+  background: var(--creme2);
+  border-radius: 12px;
+  padding: 10px 6px;
+  text-align: center;
+}
+
+.poids-label {
+  font-size: 9px;
+  color: var(--texte-doux);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.poids-val {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--texte);
+}
+
+/* Correction débordement des exercices */
+#liste-exercices li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+#liste-exercices li span:first-child {
+  flex: 1;
+  font-size: 13px;
+  min-width: 0;
+  word-break: break-word;
+}
+
+#liste-exercices li div {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.duree-badge {
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+.lancer-sport {
+  white-space: nowrap;
+}
+
+/* IA Sport */
+.ia-section {
+  background: rgba(255,255,255,0.90) !important;
+  color: var(--texte) !important;
+}
+
+.ia-section h3 {
+  color: var(--caramel) !important;
+}
+
+.ia-section input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  background: rgba(255,255,255,0.1);
+  color: #F5EDD8;
+  outline: none;
+}
+
+.ia-section input::placeholder {
+  color: rgba(245,237,216,0.5);
+}
+
+.ia-section button {
+  background: var(--caramel);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ia-reponse {
+  margin-top: 14px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #F5EDD8;
+}

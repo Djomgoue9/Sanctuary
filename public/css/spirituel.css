@@ -1,0 +1,153 @@
+/* ================================
+   SPIRITUEL — spirituel.css
+================================ */
+
+.verset-glass {
+  margin: 0 0 16px;
+  border-radius: 18px;
+  padding: 20px;
+  background: linear-gradient(135deg, #2C1810 0%, #3D2318 100%);
+  box-shadow: 0 4px 20px rgba(44,24,16,0.25);
+  border: 1px solid rgba(212,163,115,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.verset-glass::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(212,163,115,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.verset-label {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 12px;
+}
+
+.verset-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  line-height: 1.8;
+  font-style: italic;
+  color: #F5EDD8;
+  margin-bottom: 10px;
+}
+
+.verset-ref {
+  font-size: 12px;
+  color: var(--caramel);
+  margin-bottom: 14px;
+}
+
+.btn-nouveau-verset {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(212,163,115,0.3);
+  color: var(--caramel);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.btn-nouveau-verset:hover {
+  background: rgba(212,163,115,0.2);
+}
+
+#bible-search {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--rose);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  background: white;
+  color: var(--texte);
+  outline: none;
+}
+
+.btn-recherche {
+  background: var(--caramel);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.resultat-verset {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(44,24,16,0.07);
+  border-left: 3px solid var(--caramel);
+}
+
+.resultat-ref {
+  font-size: 10px;
+  color: var(--caramel);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.resultat-texte {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  color: var(--texte);
+  line-height: 1.6;
+}
+
+.livres-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.livre-item {
+  background: white;
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 8px rgba(44,24,16,0.07);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.livre-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(44,24,16,0.12);
+}
+
+.livre-num {
+  font-size: 11px;
+  color: var(--caramel);
+  font-weight: 600;
+  min-width: 24px;
+}
+
+.livre-nom {
+  font-size: 13px;
+  color: var(--texte);
+  font-weight: 500;
+  flex: 1;
+}
+
+.livre-chap {
+  font-size: 10px;
+  color: var(--texte-doux);
+}

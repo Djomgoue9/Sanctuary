@@ -1,0 +1,702 @@
+/* ================================ SANCTUARY — style.css Ta palette de couleurs ================================ */
+
+/* Les variables : tes couleurs à toi */
+:root {
+  --caramel: #D4A373;
+  --rose: #E6B8B8;
+  --bordeaux: #B5838D;
+  --creme: #FDFBF7;
+  --creme2: #F5F0E8;
+  --texte: #2C1810;
+  --texte-doux: #7A6558;
+}
+
+/* ================================ RESET : efface les styles du navigateur ================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================================ BODY : la page entière ================================ */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  background-color: var(--creme);
+  color: var(--texte);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ================================ HEADER : logo en haut ================================ */
+header {
+  background-color: var(--creme);
+  padding: 20px;
+  border-bottom: 1px solid var(--rose);
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--caramel);
+}
+
+header p {
+  font-size: 11px;
+  color: var(--texte-doux);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ================================ MAIN : contenu central ================================ */
+main {
+  padding: 20px;
+}
+
+section {
+  background-color: var(--creme2);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--texte);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--texte-doux);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+p {
+  font-size: 13px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ================================ LISTE DES TÂCHES ================================ */
+ul {
+  list-style: none;
+}
+
+li {
+  background-color: white;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  border-left: 3px solid var(--caramel);
+}
+
+/* ================================ VERSET (section sombre) ================================ */
+.verset {
+  background-color: var(--texte);
+  color: #F5EDD8;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.verset p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--caramel);
+}
+
+/* ================================ NAVIGATION EN BAS ================================ */
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  border-top: 1px solid var(--rose);
+  margin-top: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--texte-doux);
+  font-size: 8px;
+  padding: 4px 2px;
+}
+
+nav a:hover {
+  color: var(--caramel);
+}
+
+/* Zone chronomètre */
+#chrono-zone {
+  background-color: var(--creme2);
+  border: 1.5px solid var(--caramel);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#chrono-nom {
+  font-size: 13px;
+  color: var(--texte-doux);
+  margin: 0;
+}
+
+#chrono-temps {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--caramel);
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+#btn-stop {
+  background-color: var(--bordeaux);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Boutons Lancer dans les tâches */
+li button {
+  background-color: transparent;
+  border: 1px solid var(--caramel);
+  color: var(--caramel);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+li button:hover {
+  background-color: var(--caramel);
+  color: white;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Navigation améliorée */
+nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--texte-doux);
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  padding: 4px 2px;
+  border-radius: 10px;
+  transition: color 0.2s;
+}
+
+nav a.nav-actif {
+  color: var(--caramel);
+}
+
+nav a span:first-child {
+  font-size: 16px;
+}
+
+/* ================================
+   IA SECTIONS — Glassmorphism blanc
+================================ */
+.ia-section {
+  background: rgba(255,255,255,0.90) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(212,163,115,0.25) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(212,163,115,0.12) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.ia-section::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 150px; height: 150px;
+  background: radial-gradient(circle, rgba(212,163,115,0.10) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ia-section h3 {
+  color: var(--texte) !important;
+  font-size: 17px !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  margin-bottom: 8px !important;
+}
+
+.ia-section p {
+  color: var(--texte-doux) !important;
+  font-size: 12px !important;
+  margin-bottom: 14px !important;
+}
+
+/* Inputs uniformes dans toutes les IA */
+.ia-section input[type="text"] {
+  width: 100% !important;
+  flex: 1 !important;
+  padding: 12px 16px !important;
+  border-radius: 20px !important;
+  border: 1.5px solid rgba(212,163,115,0.3) !important;
+  background: rgba(253,251,247,0.9) !important;
+  color: var(--texte) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 13px !important;
+  outline: none !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+
+.ia-section input[type="text"]::placeholder {
+  color: var(--texte-doux) !important;
+  opacity: 0.6 !important;
+}
+
+.ia-section input[type="text"]:focus {
+  border-color: var(--caramel) !important;
+  background: white !important;
+  box-shadow: 0 0 0 3px rgba(212,163,115,0.12) !important;
+}
+
+/* Bouton envoi IA */
+.ia-section > div button,
+.ia-section div > button:not(.btn-fermer-ia) {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, var(--caramel), var(--bordeaux)) !important;
+  border: none !important;
+  color: white !important;
+  font-size: 16px !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 4px 14px rgba(212,163,115,0.4) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Réponse IA */
+.ia-reponse {
+  margin-top: 14px !important;
+  background: rgba(245,240,232,0.7) !important;
+  border: 1px solid rgba(212,163,115,0.2) !important;
+  border-radius: 14px !important;
+  padding: 14px !important;
+  color: var(--texte) !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+}
+
+/* ================================
+   VERSET — Glassmorphism blanc
+================================ */
+.verset,
+.verset-glass {
+  background: rgba(255,255,255,0.90) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(212,163,115,0.25) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(212,163,115,0.12) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.verset-glass::before,
+.verset::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(212,163,115,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Textes du verset en sombre */
+.verset-label {
+  color: var(--caramel) !important;
+  font-size: 9px !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 12px !important;
+}
+
+.verset-text,
+.verset p:first-of-type {
+  color: var(--texte) !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 17px !important;
+  line-height: 1.8 !important;
+  font-style: italic !important;
+}
+
+.verset-ref,
+.verset p:last-of-type {
+  color: var(--caramel) !important;
+  font-size: 12px !important;
+  margin-top: 8px !important;
+}
+
+.verset h3 {
+  color: var(--caramel) !important;
+  font-size: 9px !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 12px !important;
+}
+
+/* Bouton nouveau verset */
+.btn-nouveau-verset {
+  background: rgba(212,163,115,0.1) !important;
+  border: 1px solid rgba(212,163,115,0.3) !important;
+  color: var(--caramel) !important;
+  border-radius: 20px !important;
+  padding: 6px 14px !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  font-family: 'Montserrat', sans-serif !important;
+  margin-top: 12px !important;
+}
+
+.btn-nouveau-verset:hover {
+  background: rgba(212,163,115,0.2) !important;
+}
+/* ================================
+   OMBRES & ANIMATIONS — upgrade design
+================================ */
+
+/* Ombres douces sur toutes les sections */
+section {
+  box-shadow: 0 2px 12px rgba(44, 24, 16, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 24, 16, 0.10);
+}
+
+/* Ombres sur les cartes li */
+li {
+  box-shadow: 0 1px 6px rgba(44, 24, 16, 0.07);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+li:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(44, 24, 16, 0.12);
+}
+
+/* Header avec ombre légère */
+header {
+  box-shadow: 0 2px 10px rgba(44, 24, 16, 0.08);
+}
+
+/* Navigation avec ombre vers le haut */
+nav {
+  box-shadow: 0 -2px 10px rgba(44, 24, 16, 0.06);
+}
+
+/* Boutons avec animation au clic */
+button {
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+button:active {
+  transform: scale(0.96);
+  opacity: 0.85;
+}
+
+/* Animation d'apparition des sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main section {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+main section:nth-child(1) { animation-delay: 0s; }
+main section:nth-child(2) { animation-delay: 0.08s; }
+main section:nth-child(3) { animation-delay: 0.16s; }
+main section:nth-child(4) { animation-delay: 0.24s; }
+main section:nth-child(5) { animation-delay: 0.32s; }
+
+/* Inputs avec focus animé */
+input:focus, textarea:focus, select:focus {
+  border-color: var(--caramel) !important;
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.15);
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* Liens navigation avec animation */
+nav a {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  transform: translateY(-2px);
+}
+
+nav a.nav-actif span:first-child {
+  animation: bounceIcon 0.4s ease;
+}
+
+@keyframes bounceIcon {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Chronomètre — animation du chiffre */
+#chrono-temps, #chrono-sport-temps {
+  transition: color 0.3s ease;
+}
+
+/* Verset — apparition douce */
+.verset {
+  background: linear-gradient(135deg, #2C1810 0%, #3D2318 100%);
+  box-shadow: 0 4px 20px rgba(44, 24, 16, 0.25);
+}
+
+/* Sections IA — dégradé profond */
+.ia-section {
+  background: linear-gradient(135deg, #2C1810 0%, #1a0f0a 100%) !important;
+  box-shadow: 0 4px 20px rgba(44, 24, 16, 0.3) !important;
+}
+
+/* Boutons principaux — effet brillant */
+.form-recette button,
+#btn-stop {
+  background: linear-gradient(135deg, var(--caramel) 0%, #C4926A 100%);
+  box-shadow: 0 3px 10px rgba(212, 163, 115, 0.35);
+}
+
+/* Cartes recettes — ombre et hover */
+.carte-recette {
+  box-shadow: 0 2px 10px rgba(44, 24, 16, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carte-recette:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(44, 24, 16, 0.14);
+}
+
+/* ================================
+   TOAST ENCOURAGEMENT
+================================ */
+.encouragement-toast {
+  position: fixed;
+  bottom: 90px;
+  left: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212,163,115,0.3);
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 30px rgba(44,24,16,0.15);
+  z-index: 9999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.encouragement-toast.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.toast-texte {
+  flex: 1;
+  font-size: 13px;
+  color: var(--texte);
+  line-height: 1.5;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: var(--texte-doux);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* ================================
+   MESSAGES PROGRESSION
+================================ */
+.message-progression,
+.message-accueil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  margin: 0 16px 12px;
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.message-progression.matin,
+.message-accueil.matin {
+  background: rgba(212,163,115,0.1);
+  border: 1px solid rgba(212,163,115,0.2);
+  color: var(--texte);
+}
+
+.message-progression.fini,
+.message-accueil.fini {
+  background: rgba(29,158,117,0.08);
+  border: 1px solid rgba(29,158,117,0.2);
+  color: var(--texte);
+}
+
+.message-progression.encours,
+.message-accueil.encours {
+  background: var(--creme2);
+  border: 1px solid var(--rose);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.message-progression.vide,
+.message-accueil.vide {
+  background: var(--creme2);
+  border: 1px dashed var(--rose);
+  color: var(--texte-doux);
+  justify-content: center;
+}
+
+/* Barre de progression */
+.prog-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: #EEE7DC;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.prog-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--caramel), var(--bordeaux));
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+/* Tâche cochée */
+#liste-taches li.done {
+  opacity: 0.6;
+}
+
+.tache-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: white;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.tache-check.checked {
+  background: var(--vert);
+  border-color: var(--vert);
+}
+
+.tache-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#liste-taches li.done .tache-nom {
+  text-decoration: line-through;
+  color: var(--texte-doux);
+}
+
+/* Célébration */
+.task-card.celebration {
+  background: linear-gradient(135deg, rgba(212,163,115,0.1), rgba(181,131,141,0.1));
+  border: 1px solid rgba(212,163,115,0.3);
+}
+
+.taches-vides {
+  text-align: center;
+  padding: 20px;
+  color: var(--texte-doux);
+  font-size: 13px;
+}
+
+/* Bouton mode sombre/clair */
+.btn-mode {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(212,163,115,0.1);
+  border: 1px solid rgba(212,163,115,0.3);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-mode:hover {
+  background: rgba(212,163,115,0.2);
+  transform: rotate(20deg);
+}

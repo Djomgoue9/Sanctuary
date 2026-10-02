@@ -1,0 +1,243 @@
+/* ================================
+   TÂCHES — taches.css
+================================ */
+
+/* Formulaire ajout tâche */
+.form-tache {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.form-tache input {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--rose);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  background: white;
+  color: var(--texte);
+  outline: none;
+}
+
+.form-tache input:first-child { flex: 1; min-width: 150px; }
+.form-tache input:nth-child(2) { width: 100px; }
+
+.form-tache button {
+  background: var(--caramel);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Liste tâches */
+#liste-taches li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: white;
+  border-radius: 14px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(44,24,16,0.07);
+  border-left: 3px solid var(--caramel);
+}
+
+#liste-taches li.done {
+  opacity: 0.5;
+  border-left-color: #1D9E75;
+}
+
+.tache-nom { flex: 1; font-size: 13px; color: var(--texte); font-weight: 500; }
+.tache-duree { font-size: 11px; color: var(--texte-doux); }
+
+.btn-lancer-tache {
+  background: transparent;
+  border: 1px solid var(--caramel);
+  color: var(--caramel);
+  border-radius: 12px;
+  padding: 5px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-lancer-tache:hover {
+  background: var(--caramel);
+  color: white;
+}
+
+.btn-supprimer {
+  background: transparent;
+  border: none;
+  color: #C0A090;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+/* Planificateur */
+.planificateur {
+  background: var(--creme2) !important;
+  border: 1px solid rgba(212,163,115,0.3) !important;
+}
+
+.form-planning {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 10px;
+  color: var(--texte-doux);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.form-group input {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--rose);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  background: white;
+  color: var(--texte);
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--caramel);
+  box-shadow: 0 0 0 3px rgba(212,163,115,0.15);
+}
+
+.btn-planifier {
+  background: linear-gradient(135deg, var(--caramel), var(--bordeaux));
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 14px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 14px rgba(212,163,115,0.35);
+  transition: transform 0.2s ease;
+}
+
+.btn-planifier:hover { transform: translateY(-1px); }
+
+/* Résultat planning */
+.planning-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texte);
+  margin: 16px 0 10px;
+}
+
+.btn-fermer-planning {
+  background: transparent;
+  border: 1px solid var(--rose);
+  color: var(--texte-doux);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.planning-slot {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 6px rgba(44,24,16,0.06);
+}
+
+.planning-slot-heure {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--caramel);
+  min-width: 45px;
+}
+
+.planning-slot-nom {
+  font-size: 13px;
+  color: var(--texte);
+  flex: 1;
+}
+
+.planning-slot-duree {
+  font-size: 11px;
+  color: var(--texte-doux);
+}
+
+/* Suggestion IA */
+.planning-ia {
+  background: linear-gradient(135deg, #2C1810, #3D2318);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.planning-ia-label {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 10px;
+}
+
+#planning-ia-texte {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #F5EDD8;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+}
+
+/* Tâches reportées */
+.reporte-label {
+  font-size: 11px;
+  color: var(--bordeaux);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.reporte-item {
+  font-size: 13px;
+  color: var(--texte-doux);
+  padding: 8px 12px;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  border-left: 3px solid var(--bordeaux);
+  opacity: 0.7;
+}

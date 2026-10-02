@@ -1,0 +1,16 @@
+{
+  "name": "Sanctuary",
+  "short_name": "Sanctuary",
+  "description": "Your home, harmonized",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#D4A373",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

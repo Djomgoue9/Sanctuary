@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sanctuary — Connexion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/darkmode.css">
+    <link rel="manifest" href="/manifest.json">
+  </head>
+  <body class="login-body">
+
+    <div class="login-container">
+
+      <!-- LOGO -->
+      <div class="login-logo-section">
+        <div class="login-logo">Sanctuary</div>
+        <div class="login-tagline">Your home, harmonized</div>
+        <div class="login-illustration">🌸</div>
+      </div>
+
+      <!-- TABS -->
+      <div class="login-tabs">
+        <button class="tab-btn actif" onclick="switchTab('connexion')">
+          Se connecter
+        </button>
+        <button class="tab-btn" onclick="switchTab('inscription')">
+          Créer un compte
+        </button>
+      </div>
+
+      <!-- CONNEXION -->
+      <div id="tab-connexion" class="tab-content">
+        <div class="form-login">
+          <div class="input-group">
+            <label>Prénom</label>
+            <input id="login-prenom" type="text" placeholder="Votre prénom">
+          </div>
+          <div class="input-group">
+            <label>Mot de passe</label>
+            <input id="login-mdp" type="password" placeholder="••••••••">
+          </div>
+          <div id="login-erreur" class="login-erreur" style="display:none;"></div>
+          <button onclick="seConnecter()" class="btn-login">
+            Se connecter ✦
+          </button>
+        </div>
+      </div>
+
+      <!-- INSCRIPTION -->
+      <div id="tab-inscription" class="tab-content" style="display:none;">
+        <div class="form-login">
+
+          <!-- Photo de profil -->
+          <div class="photo-profil-section">
+            <div class="photo-preview" id="photo-preview">
+              <span id="photo-placeholder">👤</span>
+              <img id="photo-img" src="" alt="" style="display:none;">
+            </div>
+            <label class="btn-photo" for="input-photo">
+              📷 Choisir une photo
+            </label>
+            <input id="input-photo" type="file" accept="image/*"
+              onchange="previewPhotoProfil(this)">
+          </div>
+
+          <div class="input-group">
+            <label>Prénom</label>
+            <input id="inscr-prenom" type="text" placeholder="Votre prénom">
+          </div>
+          <div class="input-group">
+            <label>Mot de passe</label>
+            <input id="inscr-mdp" type="password" placeholder="••••••••">
+          </div>
+          <div class="input-group">
+            <label>Confirmer le mot de passe</label>
+            <input id="inscr-mdp2" type="password" placeholder="••••••••">
+          </div>
+          <div id="inscr-erreur" class="login-erreur" style="display:none;"></div>
+          <button onclick="sInscrire()" class="btn-login">
+            Créer mon compte 🌸
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SCRIPTS dans le bon ordre -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-client.js"></script>
+    <script src="/js/darkmode.js"></script>
+    <script src="/js/login.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sanctuary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="accueil.css">
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="darkmode.css">
+    <link rel="stylesheet" href="navigation.css">
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
+  </head>
+  <body>
+
+   <header>
+  <div>
+    <div class="logo">Sanctuary</div>
+    <div class="logo-sub">Your home, harmonized</div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <button onclick="toggleMode()" class="btn-mode" id="btn-mode">🌙</button>
+    <span style="font-size:18px;color:#A89080;">🔔</span>
+    <div class="avatar" id="user-avatar" onclick="voirProfil()">👤</div>
+  </div>
+</header>
+
+    <main>
+
+     <div class="bonjour">
+  Bonjour, <strong id="user-prenom">—</strong> ✦
+</div>
+
+     <!-- HERO PHOTO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-recette">
+    <div class="hero-recette-label">🍽 Repas du jour</div>
+    <div class="hero-recette-name">Chargement...</div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">✦ Votre journée</div>
+    <div class="hero-title">Chargement...<br><em></em></div>
+    <div class="hero-sub" id="hero-sub">Chargement...</div>
+  </div>
+</div>
+<!-- RAPPELS DU JOUR -->
+<div id="rappels-section" class="rappels-section">
+  <div class="rappels-header">
+    <span class="rappels-titre">🔔 Rappels</span>
+    <span class="rappels-date" id="rappels-date"></span>
+  </div>
+  <div id="rappels-liste"></div>
+</div>
+
+<div style="text-align:center;padding:8px;">
+  <button onclick="testerNotification()"
+    style="background:transparent;border:1px solid rgba(212,163,115,0.3);
+    color:var(--texte-doux);border-radius:20px;padding:6px 14px;
+    font-size:12px;cursor:pointer;font-family:'Montserrat',sans-serif;">
+    🔔 Tester les notifications
+  </button>
+</div>
+
+<!-- ASSISTANT VOCAL -->
+<div class="vocal-section">
+  <div class="vocal-header">
+    <div>
+      <div class="vocal-titre">🎤 Assistante vocale</div>
+      <div class="vocal-sous-titre">Parlez pour ajouter un RDV</div>
+    </div>
+    <button id="btn-micro" onclick="toggleMicro()" class="btn-micro">
+      🎤
+    </button>
+  </div>
+
+  <div id="vocal-status" class="vocal-status" style="display:none;">
+    <div class="vocal-onde">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p id="vocal-texte">En écoute...</p>
+  </div>
+
+  <div id="vocal-resultat" style="display:none;">
+    <div id="vocal-transcription" class="vocal-transcription"></div>
+    <div id="vocal-action" class="vocal-action"></div>
+    <div style="display:flex;gap:8px;margin-top:10px;">
+      <button onclick="confirmerRdv()" id="btn-confirmer"
+        class="vocal-btn-ok" style="display:none;">
+        ✓ Confirmer
+      </button>
+      <button onclick="annulerVocal()" class="vocal-btn-annuler">
+        Annuler
+      </button>
+    </div>
+  </div>
+
+  <div class="vocal-exemples">
+    <p>Exemples :</p>
+    <span onclick="testerCommande('Jai rdv chez le dentiste le 1er juillet à 14h')">
+      "RDV dentiste 1er juillet 14h"
+    </span>
+    <span onclick="testerCommande('Rappelle moi daller chercher les enfants demain à 16h30')">
+      "Chercher enfants demain 16h30"
+    </span>
+  </div>
+</div>
+      <!-- VERSET GLASSMORPHISM -->
+      <div class="verset-glass">
+        <div class="verset-label">✦ Verset du jour</div>
+        <div class="verset-text">Chargement...</div>
+        <div class="verset-ref">—</div>
+      </div>
+
+      <!-- MESSAGE PROGRESSION -->
+      <div id="message-progression"></div>
+
+      <!-- TÂCHES -->
+      <div class="section-label">Tâches du jour</div>
+      <div id="taches-accueil"></div>
+
+    </main>
+
+    <nav>
+      <a href="index.html" class="nav-actif"><span>🏠</span><span>Accueil</span></a>
+      <a href="taches.html"><span>✓</span><span>Tâches</span></a>
+      <a href="agenda.html"><span>📅</span><span>Agenda</span></a>
+      <a href="budget.html"><span>💰</span><span>Budget</span></a>
+      <a href="cuisine.html"><span>🍽</span><span>Cuisine</span></a>
+      <a href="sport.html"><span>🏃</span><span>Sport</span></a>
+      <a href="spirituel.html"><span>✝</span><span>Spirituel</span></a>
+    </nav>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
+    <script src="encouragement.js"></script>
+
+
+    <script>
+      // ================================
+      // VERSET DU JOUR
+      // ================================
+      const versets = [
+        { texte: "L'Éternel est mon berger : je ne manquerai de rien.", ref: "Psaume 23 : 1" },
+        { texte: "Je puis tout par celui qui me fortifie.", ref: "Philippiens 4 : 13" },
+        { texte: "Car Dieu a tant aimé le monde qu'il a donné son Fils unique.", ref: "Jean 3 : 16" },
+        { texte: "Toutes choses concourent au bien de ceux qui aiment Dieu.", ref: "Romains 8 : 28" },
+        { texte: "Ceux qui se confient en l'Éternel renouvellent leur force.", ref: "Ésaïe 40 : 31" },
+        { texte: "Confie-toi en l'Éternel de tout ton cœur.", ref: "Proverbes 3 : 5" },
+        { texte: "Cherchez premièrement le royaume et la justice de Dieu.", ref: "Matthieu 6 : 33" },
+        { texte: "Sois fort et courageux. Ne t'effraie point.", ref: "Josué 1 : 9" },
+        { texte: "Dieu est pour nous un refuge et un appui.", ref: "Psaume 46 : 1" },
+        { texte: "Je suis le chemin, la vérité, et la vie.", ref: "Jean 14 : 6" },
+        { texte: "La paix de Dieu gardera vos cœurs.", ref: "Philippiens 4 : 7" },
+        { texte: "Ne crains rien, car je suis avec toi.", ref: "Ésaïe 41 : 10" },
+        { texte: "Venez à moi, vous tous qui êtes fatigués.", ref: "Matthieu 11 : 28" },
+        { texte: "L'amour est patient, il est plein de bonté.", ref: "1 Corinthiens 13 : 4" },
+        { texte: "Que tout ce que vous faites soit fait avec amour.", ref: "1 Corinthiens 16 : 14" },
+        { texte: "L'Éternel est ma lumière et mon salut.", ref: "Psaume 27 : 1" },
+        { texte: "Je suis avec vous tous les jours, jusqu'à la fin du monde.", ref: "Matthieu 28 : 20" },
+        { texte: "La femme forte, qui la trouvera ?", ref: "Proverbes 31 : 10" },
+        { texte: "Goûtez et voyez combien l'Éternel est bon !", ref: "Psaume 34 : 8" },
+        { texte: "Réjouissez-vous dans le Seigneur en tout temps.", ref: "Philippiens 4 : 4" }
+      ];
+
+      const today = new Date();
+      const idxVerset = (today.getDate() + today.getMonth() * 31) % versets.length;
+      const verset = versets[idxVerset];
+      document.querySelector('.verset-text').textContent = '« ' + verset.texte + ' »';
+      document.querySelector('.verset-ref').textContent = '— ' + verset.ref;
+
+      // ================================
+      // SYNCHRONISATION TÂCHES
+      // ================================
+      async function afficherTachesAccueil() {
+        const taches = getTachesPartagees();
+        const prog = getProgression(taches);
+        const zone = document.getElementById('taches-accueil');
+        const zoneMsg = document.getElementById('message-progression');
+        const heroSub = document.getElementById('hero-sub');
+
+        // Mettre à jour le hero
+        if (heroSub) {
+          heroSub.textContent = prog.total + ' tâches · ' + prog.pct + '% accompli';
+        }
+
+        // Aucune tâche
+        if (taches.length === 0) {
+          zone.innerHTML = `
+            <div class="task-card" style="justify-content:center;cursor:pointer;"
+              onclick="location.href='taches.html'">
+              <span style="font-size:13px;color:var(--texte-doux);">
+                🌸 Aucune tâche — Appuyez pour en ajouter
+              </span>
+            </div>`;
+          zoneMsg.innerHTML = '';
+          return;
+        }
+
+        // Toutes les tâches accomplies
+        if (prog.pct === 100) {
+          zone.innerHTML = `
+            <div class="task-card celebration"
+              style="justify-content:center;flex-direction:column;
+              text-align:center;gap:6px;padding:20px;">
+              <span style="font-size:36px;">🎉</span>
+              <span style="font-size:14px;font-weight:500;color:var(--texte);">
+                Toutes les tâches accomplies !
+              </span>
+            </div>`;
+          const msg = await getMessageIA(
+            'Felicite chaleureusement une femme chretienne qui a termine toutes ses taches du jour. 2 phrases max.'
+          );
+          zoneMsg.innerHTML = `
+            <div class="message-accueil fini">
+              <span>✨</span>
+              <p>${msg || "Bravo ! Vous avez tout accompli aujourd'hui !"}</p>
+            </div>`;
+          return;
+        }
+
+        // Tâches en cours — afficher les non faites
+        const tachesAffichees = taches.filter(t => !t.done).slice(0, 4);
+        zone.innerHTML = tachesAffichees.map(t => `
+          <div class="task-card" onclick="location.href='taches.html'">
+            <div class="task-icon">
+              ${t.nom.toLowerCase().includes('cuisine') ? '🍽' :
+                t.nom.toLowerCase().includes('lessive') ? '🧺' :
+                t.nom.toLowerCase().includes('salon') ? '🧹' :
+                t.nom.toLowerCase().includes('lit') ? '🛏' :
+                t.nom.toLowerCase().includes('bain') ? '🚿' : '✓'}
+            </div>
+            <div class="task-info">
+              <div class="task-name">${t.nom}</div>
+              <div class="task-time">~${t.duree} min</div>
+            </div>
+            <button style="font-size:11px;padding:6px 14px;border-radius:14px;
+              border:1px solid var(--caramel);color:#8B5E3C;background:transparent;
+              cursor:pointer;white-space:nowrap;">
+              Lancer
+            </button>
+          </div>
+        `).join('');
+
+        // Message progression
+        if (prog.faites > 0) {
+          zoneMsg.innerHTML = `
+            <div class="message-accueil encours">
+              <div class="prog-bar-bg" style="margin-bottom:6px;">
+                <div class="prog-bar-fill" style="width:${prog.pct}%"></div>
+              </div>
+              <p style="font-size:12px;color:var(--texte-doux);">
+                ${prog.faites}/${prog.total} tâches • ${prog.pct}% accompli 💪
+              </p>
+            </div>`;
+        } else {
+          zoneMsg.innerHTML = `
+            <div class="message-accueil matin">
+              <span>☀️</span>
+              <p>Bonne journée ! Vos tâches vous attendent. 🌸</p>
+            </div>`;
+        }
+      }
+
+      // Lancer au chargement
+      afficherTachesAccueil();
+
+      // Synchroniser quand on revient sur la page
+      document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'visible') {
+          afficherTachesAccueil();
+        }
+      });
+
+      window.addEventListener('focus', function() {
+        afficherTachesAccueil();
+      });
+    </script>
+<script src="vocal.js"></script>
+<script src="darkmode.js"></script>
+<script src="notifications.js"></script>
+<script src="accueil-dynamique.js"></script>
+  </body>
+  <script>
+  // Vérifier la connexion
+  const userActif = localStorage.getItem('sanctuary-user-actif');
+  if (!userActif) {
+    window.location.href = 'login.html';
+  }
+
+  // Charger le profil utilisatrice
+const userJson = localStorage.getItem('sanctuary-user-actif');
+if (userJson) {
+  const user = JSON.parse(userJson);
+
+  // Prénom
+  document.getElementById('user-prenom').textContent = user.prenom;
+
+  // Photo ou initiale
+  const avatar = document.getElementById('user-avatar');
+  if (user.photo) {
+    avatar.innerHTML = `<img src="${user.photo}"
+      style="width:34px;height:34px;border-radius:50%;object-fit:cover;">`;
+  } else {
+    avatar.textContent = user.prenom.charAt(0).toUpperCase();
+    avatar.style.background = 'var(--rose)';
+    avatar.style.color = 'var(--bordeaux)';
+  }
+}
+
+function voirProfil() {
+  if (confirm('Voulez-vous vous déconnecter ?')) {
+    localStorage.removeItem('sanctuary-user-actif');
+    window.location.href = 'login.html';
+  }
+}
+</script>
+</html>

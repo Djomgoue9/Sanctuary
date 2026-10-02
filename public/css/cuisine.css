@@ -1,0 +1,335 @@
+/* ================================
+   CUISINE — cuisine.css
+================================ */
+
+/* Catégories défilantes */
+.categories {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar { display: none; }
+
+.cat-btn {
+  background: white;
+  border: 1px solid var(--rose);
+  color: var(--texte-doux);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s;
+}
+
+.cat-btn.actif {
+  background: var(--caramel);
+  color: white;
+  border-color: var(--caramel);
+}
+
+/* Formulaire ajout recette */
+.form-recette {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-recette input,
+.form-recette select,
+.form-recette textarea {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--rose);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  background: white;
+  color: var(--texte);
+  outline: none;
+}
+
+.form-recette button {
+  background: var(--caramel);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 12px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+}
+
+/* Grille des recettes */
+.grille-recettes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.carte-recette {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #EEE7DC;
+  cursor: pointer;
+}
+
+.carte-recette img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.carte-recette-info {
+  padding: 10px;
+}
+
+.carte-recette-nom {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--texte);
+  margin-bottom: 4px;
+}
+
+.carte-recette-cat {
+  font-size: 10px;
+  color: var(--texte-doux);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.carte-vide {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--texte-doux);
+  font-size: 13px;
+  padding: 20px;
+}
+
+/* Section IA */
+.ia-section {
+  background: rgba(255,255,255,0.90) !important;
+  color: var(--texte) !important;
+}
+
+.ia-section h3 {
+  color: var(--caramel) !important;
+}
+
+.ia-section input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  background: rgba(255,255,255,0.1);
+  color: #F5EDD8;
+  outline: none;
+}
+
+.ia-section input::placeholder { color: rgba(245,237,216,0.5); }
+
+.ia-section button {
+  background: var(--caramel);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ia-reponse {
+  margin-top: 14px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #F5EDD8;
+}
+/* Bouton parcourir photo */
+.form-recette input[type="file"] {
+  display: none;
+}
+
+.label-photo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px dashed var(--caramel);
+  color: var(--texte-doux);
+  font-size: 13px;
+  cursor: pointer;
+  background: white;
+  transition: all 0.2s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.label-photo:hover {
+  background: var(--creme2);
+  border-color: var(--bordeaux);
+  color: var(--texte);
+}
+
+.label-photo span {
+  font-size: 20px;
+}
+
+/* ================================
+   GALERIE MIXTE
+================================ */
+.galerie-mixte {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Grande carte */
+.carte-grande {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(44,24,16,0.12);
+  transition: transform 0.2s ease;
+}
+
+.carte-grande:hover {
+  transform: translateY(-2px);
+}
+
+.carte-photo {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.carte-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.carte-grande:hover .carte-photo img {
+  transform: scale(1.03);
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--creme2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+}
+
+.carte-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.carte-cat {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(8px);
+  color: var(--texte);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+.carte-info-grande {
+  padding: 14px 16px;
+  background: white;
+}
+
+.carte-nom {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--texte);
+  margin-bottom: 6px;
+}
+
+.carte-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--texte-doux);
+}
+
+/* Petites cartes */
+.carte-petite {
+  display: flex;
+  gap: 12px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(44,24,16,0.07);
+  transition: transform 0.2s ease;
+}
+
+.carte-petite:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(44,24,16,0.12);
+}
+
+.carte-photo-petite {
+  width: 100px;
+  height: 90px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.carte-photo-petite img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carte-photo-petite .photo-placeholder {
+  font-size: 28px;
+  height: 90px;
+}
+
+.carte-info-petite {
+  padding: 12px 12px 12px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.carte-nom-petite {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--texte);
+}
+
+.carte-cat-petite {
+  font-size: 10px;
+  color: var(--caramel);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.carte-pers-petite {
+  font-size: 11px;
+  color: var(--texte-doux);
+}

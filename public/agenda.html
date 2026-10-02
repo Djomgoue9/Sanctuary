@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sanctuary — Agenda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/agenda.css">
+    <link rel="stylesheet" href="/css/design-system.css">
+    <link rel="stylesheet" href="/css/darkmode.css">
+    <link rel="manifest" href="/manifest.json">
+  </head>
+  <body>
+
+    <header>
+      <div>
+        <div class="logo">Sanctuary</div>
+        <div class="logo-sub">Your home, harmonized</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <button onclick="toggleMode()" class="btn-mode" id="btn-mode">🌙</button>
+        <div class="avatar" id="user-avatar">👤</div>
+      </div>
+    </header>
+
+    <main>
+
+      <section>
+        <h2>Mon Agenda</h2>
+        <p style="color:var(--texte-doux);font-size:13px;">
+          Vos rendez-vous et réservations
+        </p>
+      </section>
+
+      <!-- CALENDRIER MENSUEL -->
+      <section class="calendrier-section">
+        <div class="cal-header">
+          <button onclick="moisPrecedent()" class="cal-nav">‹</button>
+          <div class="cal-titre" id="cal-titre">Juin 2026</div>
+          <button onclick="moisSuivant()" class="cal-nav">›</button>
+        </div>
+        <div class="cal-jours-semaine">
+          <div>Lun</div>
+          <div>Mar</div>
+          <div>Mer</div>
+          <div>Jeu</div>
+          <div>Ven</div>
+          <div>Sam</div>
+          <div>Dim</div>
+        </div>
+        <div class="cal-grille" id="cal-grille"></div>
+      </section>
+
+      <!-- VUE JOUR DÉTAILLÉE -->
+      <section class="vue-jour" id="vue-jour" style="display:none;">
+        <div class="vue-jour-header">
+          <div class="vue-jour-titre" id="vue-jour-titre">Aujourd'hui</div>
+          <button onclick="fermerVueJour()" class="vue-jour-close">✕</button>
+        </div>
+        <div id="vue-jour-rdv"></div>
+      </section>
+
+      <!-- AJOUTER UN RDV -->
+      <section>
+        <h3>Ajouter un rendez-vous</h3>
+        <div class="form-rdv">
+          <input id="rdv-titre" type="text" placeholder="Titre du rendez-vous">
+          <input id="rdv-date" type="datetime-local">
+          <input id="rdv-note" type="text" placeholder="Note (optionnel)">
+          <button onclick="ajouterRdv()">Ajouter ✓</button>
+        </div>
+      </section>
+
+      <!-- PROCHAINS RDV -->
+      <section>
+        <h3>Rendez-vous à venir</h3>
+        <div id="liste-rdv"></div>
+      </section>
+
+    </main>
+
+    <nav>
+      <a href="/index.html"><span>🏠</span><span>Accueil</span></a>
+      <a href="/taches.html"><span>✓</span><span>Tâches</span></a>
+      <a href="/agenda.html" class="nav-actif"><span>📅</span><span>Agenda</span></a>
+      <a href="/budget.html"><span>💰</span><span>Budget</span></a>
+      <a href="/cuisine.html"><span>🍽</span><span>Cuisine</span></a>
+      <a href="/sport.html"><span>🏃</span><span>Sport</span></a>
+      <a href="/spirituel.html"><span>✝</span><span>Spirituel</span></a>
+    </nav>
+
+    <!-- SCRIPTS dans le bon ordre -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/js/supabase-client.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/darkmode.js"></script>
+    <script src="/js/animations.js"></script>
+    <script src="/js/agenda.js"></script>
+    <script src="/js/notifications.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        await verifierAuth();
+        await initHeader();
+      });
+    </script>
+
+  </body>
+</html>

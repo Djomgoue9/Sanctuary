@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sanctuary — Recette</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/recette-detail.css">
+    <link rel="stylesheet" href="/css/design-system.css">
+    <link rel="stylesheet" href="/css/darkmode.css">
+    <link rel="manifest" href="/manifest.json">
+  </head>
+  <body>
+
+    <div class="detail-header">
+      <button onclick="history.back()" class="btn-retour">← Retour</button>
+      <div class="detail-header-titre">Ma recette</div>
+      <div style="width:60px;"></div>
+    </div>
+
+    <!-- PHOTO HERO -->
+    <div class="detail-photo" id="detail-photo">
+      <div class="detail-photo-placeholder">🍽</div>
+    </div>
+
+    <!-- CONTENU -->
+    <div class="detail-contenu">
+
+      <!-- NOM + CATÉGORIE -->
+      <div class="detail-nom-section">
+        <div class="detail-cat" id="detail-cat">—</div>
+        <h1 class="detail-nom" id="detail-nom">—</h1>
+      </div>
+
+      <!-- NOMBRE DE PERSONNES -->
+      <div class="personnes-section">
+        <span class="personnes-label">👥 Nombre de personnes</span>
+        <div class="personnes-controls">
+          <button onclick="changerPersonnes(-1)" class="btn-pers">−</button>
+          <span id="nb-personnes">4</span>
+          <button onclick="changerPersonnes(1)" class="btn-pers">+</button>
+        </div>
+      </div>
+
+      <!-- INGRÉDIENTS COCHABLES -->
+      <div class="detail-section">
+        <div class="ingredients-header">
+          <h3>Ingrédients</h3>
+          <button onclick="toutDecocher()" class="btn-reset">↺ Réinitialiser</button>
+        </div>
+        <div id="detail-ingredients" class="detail-ingredients-liste"></div>
+      </div>
+
+      <!-- BOUTON MODIFIER -->
+      <button class="btn-modifier" onclick="activerModification()">
+        ✎ Modifier la recette
+      </button>
+
+      <!-- FORMULAIRE MODIFICATION -->
+      <div id="form-modification" style="display:none;">
+        <div class="detail-section">
+          <h3>Modifier</h3>
+          <input id="edit-nom" type="text" placeholder="Nom de la recette">
+          <input id="edit-personnes" type="number"
+            placeholder="Nombre de personnes" min="1" max="20">
+          <textarea id="edit-ingredients" rows="6"
+            placeholder="Ingrédients (un par ligne)..."></textarea>
+          <label class="label-photo" for="edit-photo">
+            <span>📷</span>
+            <span id="edit-photo-label">Changer la photo</span>
+          </label>
+          <input id="edit-photo" type="file" accept="image/*"
+            onchange="previewEditPhoto(this)">
+          <button class="btn-sauvegarder" onclick="sauvegarderModification()">
+            ✓ Sauvegarder
+          </button>
+          <button class="btn-annuler" onclick="annulerModification()">
+            Annuler
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <nav>
+      <a href="/index.html"><span>🏠</span><span>Accueil</span></a>
+      <a href="/taches.html"><span>✓</span><span>Tâches</span></a>
+      <a href="/agenda.html"><span>📅</span><span>Agenda</span></a>
+      <a href="/budget.html"><span>💰</span><span>Budget</span></a>
+      <a href="/cuisine.html" class="nav-actif"><span>🍽</span><span>Cuisine</span></a>
+      <a href="/sport.html"><span>🏃</span><span>Sport</span></a>
+      <a href="/spirituel.html"><span>✝</span><span>Spirituel</span></a>
+    </nav>
+
+    <!-- SCRIPTS dans le bon ordre -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/js/supabase-client.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/darkmode.js"></script>
+    <script src="/js/animations.js"></script>
+    <script src="/js/recette-detail.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        await verifierAuth();
+        await initHeader();
+      });
+    </script>
+
+  </body>
+</html>

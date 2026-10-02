@@ -1,0 +1,603 @@
+/* ================================
+   ACCUEIL — accueil.css
+================================ */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 10px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--caramel);
+}
+
+.logo-sub {
+  font-size: 9px;
+  color: #A89080;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #7A3B3B;
+  font-weight: 500;
+}
+
+.bonjour {
+  padding: 4px 20px 10px;
+  font-size: 13px;
+  color: var(--texte-doux);
+}
+
+.bonjour strong {
+  color: var(--texte);
+}
+
+/* ================================
+   HERO AVEC PHOTO
+================================ */
+.hero {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  margin: 0 16px 16px;
+  border-radius: 22px;
+  box-shadow: 0 8px 30px rgba(44,24,16,0.2);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80') center/cover no-repeat;
+  filter: brightness(0.75);
+  transition: transform 0.4s ease;
+}
+
+.hero:hover .hero-bg {
+  transform: scale(1.04);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(44,24,16,0.88) 0%,
+    rgba(44,24,16,0.05) 60%
+  );
+  border-radius: 22px;
+}
+
+.hero-recette {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 14px;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.hero-recette-label {
+  font-size: 9px;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-recette-name {
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(212,163,115,0.9);
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.hero-title {
+ font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 5px;
+  letter-spacing: 0.02em;
+}
+
+.hero-title em {
+   font-style: italic;
+  color: var(--caramel);
+  font-weight: 400;
+}
+
+.hero-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ================================
+   VERSET GLASSMORPHISM
+================================ */
+.verset-glass {
+  margin: 0 16px 16px;
+  border-radius: 18px;
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2C1810 0%, #3D2318 100%);
+  box-shadow: 0 4px 20px rgba(44,24,16,0.25);
+  border: 1px solid rgba(212,163,115,0.2);
+}
+
+.verset-glass::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(212,163,115,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.verset-label {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 10px;
+}
+
+.verset-text {
+   font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  line-height: 1.8;
+  font-style: italic;
+  color: #F5EDD8;
+  letter-spacing: 0.02em;
+}
+
+.verset-ref {
+  font-size: 11px;
+  color: var(--caramel);
+  margin-top: 8px;
+}
+
+/* ================================
+   TÂCHES
+================================ */
+.section-label {
+  font-size: 10px;
+  color: #A89080;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0 20px 10px;
+}
+
+.task-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin: 0 16px 10px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(44,24,16,0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(44,24,16,0.12);
+}
+
+.task-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--creme2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.task-info {
+  flex: 1;
+}
+
+.task-name {
+  font-size: 13px;
+  color: var(--texte);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.task-time {
+  font-size: 11px;
+  color: #A89080;
+}
+
+.task-card button {
+  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--caramel);
+  color: #8B5E3C;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.task-card button:hover {
+  background: var(--caramel);
+  color: #fff;
+}
+
+/* Couleurs alternées sur les cartes tâches */
+.task-card:nth-child(1) .task-icon { background: #FFF0E8; }
+.task-card:nth-child(2) .task-icon { background: #E8F0FF; }
+.task-card:nth-child(3) .task-icon { background: #E8FFF0; }
+.task-card:nth-child(4) .task-icon { background: #FFF0F5; }
+
+/* Barre de progression du jour */
+.progress-jour {
+  margin: 16px 16px 20px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 10px rgba(44,24,16,0.07);
+}
+
+.progress-jour-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.progress-jour-titre {
+  font-size: 11px;
+  color: var(--texte-doux);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.progress-jour-pct {
+  font-size: 11px;
+  color: var(--caramel);
+  font-weight: 500;
+}
+
+.progress-bar-bg {
+  height: 6px;
+  background: var(--creme2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 25%;
+  background: linear-gradient(90deg, var(--caramel), var(--bordeaux));
+  border-radius: 6px;
+  transition: width 1s ease;
+}
+
+/* ================================
+   RAPPELS DU JOUR
+================================ */
+.rappels-section {
+  margin: 0 16px 16px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212,163,115,0.25);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(212,163,115,0.1);
+}
+
+.rappels-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.rappels-titre {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texte);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.rappels-date {
+  font-size: 11px;
+  color: var(--texte-doux);
+}
+
+.rappel-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  background: var(--creme2);
+  font-size: 13px;
+  color: var(--texte);
+}
+
+.rappel-item.important {
+  background: rgba(212,163,115,0.12);
+  border: 1px solid rgba(212,163,115,0.3);
+}
+
+.rappel-item.urgent {
+  background: rgba(226,75,74,0.08);
+  border: 1px solid rgba(226,75,74,0.3);
+}
+
+.rappel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rappel-info { flex: 1; }
+.rappel-nom { font-weight: 500; font-size: 13px; }
+.rappel-heure { font-size: 11px; color: var(--texte-doux); margin-top: 1px; }
+
+.rappel-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--caramel);
+  color: white;
+  font-weight: 500;
+}
+
+.rappels-vide {
+  text-align: center;
+  padding: 10px;
+  color: var(--texte-doux);
+  font-size: 12px;
+}
+
+/* ================================
+   ASSISTANT VOCAL
+================================ */
+.vocal-section {
+  margin: 0 16px 16px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212,163,115,0.25);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(212,163,115,0.1);
+}
+
+.vocal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.vocal-titre {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--texte);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.vocal-sous-titre {
+  font-size: 11px;
+  color: var(--texte-doux);
+  margin-top: 2px;
+}
+
+.btn-micro {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--caramel), var(--bordeaux));
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(212,163,115,0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-micro.actif {
+  background: linear-gradient(135deg, #E24B4A, #B5383A);
+  box-shadow: 0 4px 20px rgba(226,75,74,0.5);
+  animation: pulse-micro 1.2s infinite;
+}
+
+@keyframes pulse-micro {
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(226,75,74,0.5); }
+  50% { transform: scale(1.08); box-shadow: 0 6px 28px rgba(226,75,74,0.7); }
+}
+
+/* Ondes sonores */
+.vocal-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0;
+  gap: 10px;
+}
+
+.vocal-onde {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 30px;
+}
+
+.vocal-onde span {
+  width: 4px;
+  background: var(--caramel);
+  border-radius: 4px;
+  animation: onde 0.8s ease-in-out infinite;
+}
+
+.vocal-onde span:nth-child(1) { animation-delay: 0s; height: 8px; }
+.vocal-onde span:nth-child(2) { animation-delay: 0.1s; height: 16px; }
+.vocal-onde span:nth-child(3) { animation-delay: 0.2s; height: 24px; }
+.vocal-onde span:nth-child(4) { animation-delay: 0.1s; height: 16px; }
+.vocal-onde span:nth-child(5) { animation-delay: 0s; height: 8px; }
+
+@keyframes onde {
+  0%, 100% { transform: scaleY(1); opacity: 0.6; }
+  50% { transform: scaleY(1.8); opacity: 1; }
+}
+
+#vocal-texte {
+  font-size: 13px;
+  color: var(--texte-doux);
+  text-align: center;
+}
+
+.vocal-transcription {
+  background: var(--creme2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--texte);
+  font-style: italic;
+  margin-bottom: 10px;
+  border-left: 3px solid var(--caramel);
+}
+
+.vocal-action {
+  background: rgba(29,158,117,0.08);
+  border: 1px solid rgba(29,158,117,0.2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--texte);
+}
+
+.vocal-action-titre {
+  font-weight: 600;
+  color: #1D9E75;
+  margin-bottom: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.vocal-action-detail {
+  font-size: 13px;
+  color: var(--texte);
+  line-height: 1.6;
+}
+
+.vocal-btn-ok {
+  flex: 1;
+  padding: 10px;
+  background: linear-gradient(135deg, var(--caramel), var(--bordeaux));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.vocal-btn-annuler {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--rose);
+  color: var(--texte-doux);
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+}
+
+/* Exemples de commandes */
+.vocal-exemples {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #F5F0E8;
+}
+
+.vocal-exemples p {
+  font-size: 11px;
+  color: var(--texte-doux);
+  margin-bottom: 6px;
+}
+
+.vocal-exemples span {
+  display: inline-block;
+  background: var(--creme2);
+  border: 1px solid rgba(212,163,115,0.2);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: var(--texte-doux);
+  cursor: pointer;
+  margin: 3px 3px 3px 0;
+  transition: all 0.2s ease;
+}
+
+.vocal-exemples span:hover {
+  background: rgba(212,163,115,0.1);
+  color: var(--caramel);
+}
+
+/* Hero background dynamique */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  filter: brightness(0.75);
+  transition: background-image 0.5s ease;
+}

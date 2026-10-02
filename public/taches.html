@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sanctuary — Tâches</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="taches.css">
+  <link rel="stylesheet" href="design-system.css">
+  <link rel="stylesheet" href="darkmode.css">
+  <link rel="stylesheet" href="navigation.css">
+  <link rel="manifest" href="/manifest.json">
+</head>
+  <body>
+
+    <header>
+      <h1>Sanctuary</h1>
+      <p>Your home, harmonized</p>
+      <button onclick="toggleMode()" class="btn-mode" id="btn-mode">🌙</button>
+    </header>
+
+    <main>
+
+      <!-- MESSAGE PROGRESSION -->
+<div id="message-progression"></div>
+      <section>
+        <h2>Tâches ménagères</h2>
+        <p style="color:var(--texte-doux);font-size:13px;">
+          Organisez votre journée avec sérénité
+        </p>
+      </section>
+
+      <!-- CHRONOMÈTRE -->
+      <section id="chrono-zone" style="display:none;">
+        <p id="chrono-nom">—</p>
+        <p id="chrono-temps">00:00</p>
+        <button id="btn-stop" onclick="stopperTache()">Terminer la tâche</button>
+      </section>
+
+      <!-- AJOUTER UNE TÂCHE -->
+      <section>
+        <h3>Ajouter une tâche</h3>
+        <div class="form-tache">
+          <input id="nouvelle-tache" type="text"
+            placeholder="Ex: Nettoyer la salle de bain...">
+          <input id="duree-tache" type="number"
+            placeholder="Durée (min)" min="1" max="120">
+          <button onclick="ajouterTache()">+ Ajouter</button>
+        </div>
+      </section>
+
+      <!-- LISTE DES TÂCHES -->
+      <section>
+        <h3>Mes tâches</h3>
+        <ul id="liste-taches"></ul>
+      </section>
+
+      <!-- PLANIFICATEUR -->
+      <section class="planificateur">
+        <h3>✦ Planifier ma journée</h3>
+        <p style="font-size:12px;color:var(--texte-doux);margin-bottom:14px;">
+          Dites-moi votre temps disponible et vos RDV — je m'occupe du reste !
+        </p>
+
+        <div class="form-planning">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Heure de début</label>
+              <input id="heure-debut" type="time" value="08:00">
+            </div>
+            <div class="form-group">
+              <label>Temps libre</label>
+              <input id="temps-libre" type="number"
+                placeholder="Minutes" min="10">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>RDV du jour (optionnel)</label>
+            <input id="rdv-jour" type="text"
+              placeholder="Ex: Dentiste à 14h30, école à 16h...">
+          </div>
+
+          <button class="btn-planifier" onclick="genererPlanning()">
+            Generer le planning
+          </button>
+        </div>
+
+        <!-- RÉSULTAT PLANNING -->
+        <div id="planning-resultat" style="display:none;">
+          <div class="planning-header">
+            <span>📅 Mon planning du jour</span>
+            <button onclick="fermerPlanning()" class="btn-fermer-planning">✕</button>
+          </div>
+
+          <!-- Tâches calculées -->
+          <div id="planning-taches"></div>
+
+          <!-- Suggestion IA -->
+          <div id="planning-ia" class="planning-ia">
+            <div class="planning-ia-label">✦ Organisation IA</div>
+            <div id="planning-ia-texte">Je réfléchis...</div>
+          </div>
+
+          <!-- Tâches reportées -->
+          <div id="planning-reporte" style="display:none;">
+            <div class="reporte-label">⏭ Reportées au lendemain</div>
+            <div id="planning-reporte-liste"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <nav>
+      <a href="index.html"><span>🏠</span><span>Accueil</span></a>
+      <a href="taches.html" class="nav-actif"><span>✓</span><span>Tâches</span></a>
+      <a href="agenda.html"><span>📅</span><span>Agenda</span></a>
+      <a href="budget.html"><span>💰</span><span>Budget</span></a>
+      <a href="cuisine.html"><span>🍽</span><span>Cuisine</span></a>
+      <a href="sport.html"><span>🏃</span><span>Sport</span></a>
+      <a href="spirituel.html"><span>✝</span><span>Spirituel</span></a>
+    </nav>
+
+      <!-- Supabase en premier -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="encouragement.js"></script>
+    <script src="taches.js"></script>
+    <script src="animations.js"></script>
+    <script src="darkmode.js"></script>
+  
+  </body>
+  <script>
+  // Vérifier la connexion
+  const userActif = localStorage.getItem('sanctuary-user-actif');
+  if (!userActif) {
+    window.location.href = 'login.html';
+  }
+</script>
+</html>

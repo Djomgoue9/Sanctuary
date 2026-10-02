@@ -1,0 +1,324 @@
+/* ================================
+   RECETTE DETAIL — recette-detail.css
+================================ */
+
+body {
+  padding-bottom: 80px;
+}
+
+/* Header retour */
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--creme);
+  border-bottom: 1px solid var(--rose);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.btn-retour {
+  background: transparent;
+  border: none;
+  color: var(--caramel);
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  padding: 0;
+}
+
+.detail-header-titre {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: var(--texte);
+}
+
+/* Photo hero */
+.detail-photo {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: var(--creme2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-photo-placeholder {
+  font-size: 60px;
+  opacity: 0.3;
+}
+
+/* Contenu */
+.detail-contenu {
+  padding: 20px 20px 100px;
+}
+
+/* Nom section */
+.detail-nom-section {
+  margin-bottom: 24px;
+}
+
+.detail-cat {
+  font-size: 10px;
+  color: var(--caramel);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.detail-nom {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--texte);
+  line-height: 1.2;
+}
+
+/* Sections */
+.detail-section {
+  margin-bottom: 24px;
+}
+
+.detail-section input,
+.detail-section textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--rose);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  background: white;
+  color: var(--texte);
+  outline: none;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* Ingrédients */
+.detail-ingredients-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: white;
+  border-radius: 12px;
+  font-size: 13px;
+  color: var(--texte);
+  box-shadow: 0 1px 6px rgba(44,24,16,0.06);
+}
+
+.ingredient-dot {
+  color: var(--caramel);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* Bouton modifier */
+.btn-modifier {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  border: 1.5px solid var(--caramel);
+  color: var(--caramel);
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+}
+
+.btn-modifier:hover {
+  background: var(--caramel);
+  color: white;
+}
+
+/* Boutons sauvegarder/annuler */
+.btn-sauvegarder {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--caramel), var(--bordeaux));
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 14px rgba(212,163,115,0.35);
+}
+
+.btn-annuler {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--rose);
+  color: var(--texte-doux);
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Nombre de personnes */
+.personnes-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--creme2);
+  border-radius: 14px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.personnes-label {
+  font-size: 13px;
+  color: var(--texte);
+  font-weight: 500;
+}
+
+.personnes-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btn-pers {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--caramel);
+  background: transparent;
+  color: var(--caramel);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.btn-pers:hover {
+  background: var(--caramel);
+  color: white;
+}
+
+#nb-personnes {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--texte);
+  min-width: 24px;
+  text-align: center;
+}
+
+/* Ingrédients cochables */
+.ingredients-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.btn-reset {
+  background: transparent;
+  border: 1px solid var(--rose);
+  color: var(--texte-doux);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 6px rgba(44,24,16,0.06);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1.5px solid transparent;
+}
+
+.ingredient-item:hover {
+  border-color: var(--rose);
+}
+
+.ingredient-item.coche {
+  background: #F5FFF8;
+  border-color: #1D9E75;
+  opacity: 0.7;
+}
+
+.ingredient-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #1D9E75;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.ingredient-item.coche .ingredient-check {
+  background: #1D9E75;
+  border-color: #1D9E75;
+  color: white;
+}
+
+.ingredient-texte {
+  font-size: 14px;
+  color: var(--texte);
+  transition: all 0.2s ease;
+}
+
+.ingredient-item.coche .ingredient-texte {
+  text-decoration: line-through;
+  color: var(--texte-doux);
+}
+
+/* Label photo modification */
+.label-photo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px dashed var(--caramel);
+  color: var(--texte-doux);
+  font-size: 13px;
+  cursor: pointer;
+  background: white;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input[type="file"] {
+  display: none;
+}
