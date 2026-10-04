@@ -5,8 +5,13 @@
 
 // Vérifier si connectée
 async function verifierAuth() {
-  const { data } = await db.auth.getSession();
+  let { data } = await db.auth.getSession();
   if (!data.session) {
+    const r = await db.auth.refreshSession();
+    data = r.data;
+  }
+  if (!data || !data.session) {
+    localStorage.removeItem('sanctuary-user-actif');
     window.location.href = '/login.html';
     return null;
   }
