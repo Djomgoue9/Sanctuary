@@ -156,6 +156,16 @@ async function seConnecter() {
 async function verifierSession() {
   const { data } = await db.auth.getSession();
   if (data.session) {
+    const user = data.session.user;
+    const { data: profil } = await db
+      .from('profils').select('*').eq('id', user.id).maybeSingle();
+    const meta = user.user_metadata || {};
+    localStorage.setItem('sanctuary-user-actif', JSON.stringify({
+      id: user.id,
+      prenom: profil?.prenom || meta.given_name || meta.full_name
+              || (user.email || '').split('@')[0],
+      photo: profil?.photo || meta.avatar_url || meta.picture || null
+    }));
     window.location.href = '/index.html';
   }
 }
@@ -164,3 +174,11 @@ async function verifierSession() {
 document.addEventListener('DOMContentLoaded', () => {
   verifierSession();
 });
+
+async function connexionGoogle() {
+  const { error } = await db.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: window.location.origin + '/login.html' }
+  });
+  if (error) alert('Erreur Google : ' + error.message);
+}
