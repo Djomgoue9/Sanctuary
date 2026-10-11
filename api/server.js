@@ -9,7 +9,7 @@ app.use(express.json());
 
 // La clé vient de .env (en local) ou de Vercel > Environment Variables
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-const MODEL = 'llama-3.3-70b-versatile';
+const MODEL = 'openai/gpt-oss-20b';
 
 // Routes IA simples (question -> réponse en 5 lignes max)
 function routeSimple(chemin, role) {
@@ -17,7 +17,7 @@ function routeSimple(chemin, role) {
     try {
       const completion = await groq.chat.completions.create({
         model: MODEL,
-        max_tokens: 250,
+        max_tokens: 10000,
         messages: [
           { role: 'system', content: `${role} Reponds en francais en 5 lignes max.` },
           { role: 'user', content: req.body.question }
@@ -42,7 +42,7 @@ app.post('/planning-ia', async (req, res) => {
     const { taches, tempsLibre, rdvDuJour, heureDebut } = req.body;
     const completion = await groq.chat.completions.create({
       model: MODEL,
-      max_tokens: 400,
+      max_tokens: 10000,
       messages: [
         {
           role: 'system',
@@ -95,7 +95,7 @@ app.post('/encouragement-ia', async (req, res) => {
   try {
     const completion = await groq.chat.completions.create({
       model: MODEL,
-      max_tokens: 100,
+      max_tokens: 1000,
       messages: [
         {
           role: 'system',
@@ -120,7 +120,7 @@ app.post('/vocal-ia', async (req, res) => {
   try {
     const completion = await groq.chat.completions.create({
       model: MODEL,
-      max_tokens: 300,
+      max_tokens: 10000,
       messages: [
         {
           role: 'system',
